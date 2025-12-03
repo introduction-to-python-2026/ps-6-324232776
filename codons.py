@@ -1,15 +1,11 @@
-def create_codon_dict(file_p ath):
-
-codon_dict = {} with open(file_path, 'r') as
-
-for line in file:
-
-file:
-
-codon, amino_acid, single_letter, full_name = line.split()
-
-codon_dict[codon] =
-
-single_letter
-
-return codon_dict
+def create_codon_dict(file_path):
+    codon_dict = {}
+    with open(file_path, 'r') as file:
+        for line in file:
+            # Remove leading/trailing whitespace and split by tab
+            parts = line.strip().split('\t')
+            # Extract codon (first part) and single-letter amino acid (third part)
+            codon = parts[0]
+            single_letter = parts[2]
+            codon_dict[codon] = single_letter
+    return codon_dict
